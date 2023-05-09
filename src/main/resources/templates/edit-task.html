@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Task</title>
+</head>
+<body>
+
+<h1>Edit Task</h1>
+
+<form th:action="@{/tasks/{id}/update(id=${taskId})}" th:object="${task}" method="post">
+  <input type="hidden" name="taskId" th:value="${taskId}" />
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" th:field="*{name}" required>
+  <label for="description">Description:</label>
+  <input type="text" id="description" name="description" th:field="*{description}" required>
+  <button type="submit">Update Task</button>
+</form>
+
+
+
+<a th:href="@{/tasks}">Back to Task List</a>
+
+</body>
+</html>
